@@ -1,0 +1,53 @@
+{
+  "detail": [
+    {
+      "id": 1,
+      "jam": "03:15",
+      "tanggal": "18 Januari 2023",
+      "nama": "Ayam Tangkap",
+      "pengeluaraan": 77249
+    },
+    {
+      "id": 2,
+      "jam": "03:15",
+      "tanggal": "18 Januari 2023",
+      "nama": "Mie Rebus",
+      "pengeluaraan": 32154
+    },
+    {
+      "id": 3,
+      "jam": "00:20",
+      "tanggal": "17 Januari 2023",
+      "nama": "Soto Kuning",
+      "pengeluaraan": 34992
+    },
+    {
+      "id": 4,
+      "jam": "05:59",
+      "tanggal": "17 Januari 2023",
+      "nama": "Ayam Geprek",
+      "pengeluaraan": 37674
+    },
+    {
+      "id": 5,
+      "jam": "05:45",
+      "tanggal": "16 Januari 2023",
+      "nama": "Otak-otak",
+      "pengeluaraan": 11971
+    },
+    {
+      "nama": "KFC",
+      "pengeluaraan": 20000,
+      "tanggal": "18 Januari 2023",
+      "jam": "15.54",
+      "id": 6
+    },
+    {
+      "nama": "pecel lele",
+      "pengeluaraan": 1,
+      "tanggal": "18 Januari 2023",
+      "jam": "18.9",
+      "id": 7
+    }
+  ]
+}

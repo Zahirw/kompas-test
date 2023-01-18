@@ -1,9 +1,11 @@
 <script setup>
-import { onMounted, ref, reactive } from 'vue';
+import { onMounted, ref, reactive, computed } from 'vue';
 import { Button as AButton, Modal as AModal, Input as AInput } from 'ant-design-vue';
 import { detailList, addDetail } from '../services/detail';
+import store from '../store/index'
 import dayjs from 'dayjs';
 import id from 'dayjs/locale/id'
+
 
 const date = dayjs()
 const dataList = ref([])
@@ -12,7 +14,11 @@ const data = reactive({
   nama: '',
   pengeluaraan: '',
 })
-
+const totalPengeluaran = computed(()=> {
+  return store.state.data.reduce((acc, obj) => 
+    acc + obj.reduce((a, b) => a + b.pengeluaraan, 0), 0
+  )
+})
 const total = (param) => {
   const data = dataList.value[param];
 
@@ -20,7 +26,6 @@ const total = (param) => {
   data.map((item) => {
     result += item.pengeluaraan
   });
-
   return result
 }
 
@@ -37,6 +42,7 @@ const fetchDetail = async() => {
         Object.keys(temp).forEach(function(key) {
           dataList.value = [...dataList.value, temp[key]]
         });
+        store.state.data = dataList.value
     })
     .catch(err => {
       console.error(err)
@@ -73,7 +79,7 @@ onMounted(()=> {
   <main>
     <div class="container mx-auto text-center">
       <p class="text-2xl font-bold">Diari Jajan {{ date.locale('id').format('MMMM YYYY') }}</p>
-      <p>pengeluaran : </p>
+      <p>pengeluaran : {{ totalPengeluaran }}</p>
       <a-button type="primary" @click="()=> visible = true">Tambahkan Item</a-button>
       <div class="grid grid-cols-3">
         <div class="w-full m-3" v-for="(record, index) in dataList" :key="record">
